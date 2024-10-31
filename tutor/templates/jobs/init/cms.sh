@@ -18,5 +18,7 @@ fi
 (./manage.py cms waffle_flag --list | grep contentstore.enable_copy_paste_units) || ./manage.py lms waffle_flag --create contentstore.enable_copy_paste_units --everyone
 
 # Re-index studio and courseware content
-./manage.py cms reindex_studio --experimental
+# TODO Only do that for large courses once this issue is resolved:
+# https://github.com/openedx/modular-learning/issues/235
+# ./manage.py cms reindex_studio --experimental
 ./manage.py cms reindex_course --active
